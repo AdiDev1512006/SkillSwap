@@ -24,7 +24,7 @@ A full-stack web application where users can teach and learn skills, connect wit
 
 * HTML
 * CSS
-* JavaScript (Vanilla)
+* JavaScript
 
 ### Backend
 
