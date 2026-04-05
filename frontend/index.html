@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎓 Skill Exchange Platform</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-graduation-cap"></i> SkillHub
+            </div>
+            <div class="nav-links">
+                <button id="navHome" class="nav-btn active">
+                    <i class="fas fa-home"></i> Home
+                </button>
+                <button id="navAuth" class="nav-btn" style="display:none;">
+                    <i class="fas fa-sign-in-alt"></i> Login
+                </button>
+                <div class="user-menu" id="userMenu" style="display:none;">
+                    <button class="nav-btn profile-btn">
+                        <i class="fas fa-user-circle"></i> <span id="navUserName">User</span>
+                    </button>
+                    <button id="navLogout" class="nav-btn">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Home Page -->
+        <div id="homePage" class="page active">
+            <div class="hero">
+                <div class="hero-content">
+                    <h1>Welcome to SkillHub 🚀</h1>
+                    <p>Learn new skills from experts. Teach what you know. Grow together.</p>
+                    <div class="hero-buttons">
+                        <button id="getStartedBtn" class="btn btn-primary btn-lg">
+                            <i class="fas fa-rocket"></i> Get Started
+                        </button>
+                        <button id="explorBtn" class="btn btn-secondary btn-lg">
+                            <i class="fas fa-search"></i> Explore Skills
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="features">
+                <div class="feature-card">
+                    <div class="feature-icon">📚</div>
+                    <h3>Learn Skills</h3>
+                    <p>Request skills you want to learn from expert teachers in your area</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">👨‍🏫</div>
+                    <h3>Teach Skills</h3>
+                    <p>Share your knowledge and help others grow. Earn by teaching</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💬</div>
+                    <h3>Connect</h3>
+                    <p>Chat with learners and teachers. Build your professional network</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⭐</div>
+                    <h3>Rate & Review</h3>
+                    <p>Leave reviews and build your reputation in the community</p>
+                </div>
+            </div>
+
+            <div class="stats-section">
+                <h2>Join Our Community</h2>
+                <div class="stats">
+                    <div class="stat">
+                        <h3 id="totalUsers">0</h3>
+                        <p>Active Users</p>
+                    </div>
+                    <div class="stat">
+                        <h3 id="totalSkills">0</h3>
+                        <p>Skills Available</p>
+                    </div>
+                    <div class="stat">
+                        <h3>1000+</h3>
+                        <p>Sessions Completed</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Auth Page -->
+        <div id="authPage" class="page">
+            <div class="auth-container">
+                <!-- Login Form -->
+                <div id="loginForm" class="auth-form active">
+                    <h2>Welcome Back!</h2>
+                    <p class="auth-subtitle">Login to your SkillHub account</p>
+                    
+                    <div class="form-group">
+                        <label for="loginEmail">
+                            <i class="fas fa-envelope"></i> Email Address
+                        </label>
+                        <input type="email" id="loginEmail" placeholder="your@email.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="loginPassword">
+                            <i class="fas fa-lock"></i> Password
+                        </label>
+                        <input type="password" id="loginPassword" placeholder="••••••••" required>
+                    </div>
+
+                    <button id="loginBtn" class="btn btn-primary btn-block">
+                        <i class="fas fa-sign-in-alt"></i> Login
+                    </button>
+
+                    <p class="auth-toggle">
+                        Don't have an account? 
+                        <span id="toggleRegister" class="link-btn">Sign Up</span>
+                    </p>
+                </div>
+
+                <!-- Register Form -->
+                <div id="registerForm" class="auth-form">
+                    <h2>Create Account</h2>
+                    <p class="auth-subtitle">Join SkillHub and start learning</p>
+                    
+                    <div class="form-group">
+                        <label for="registerName">
+                            <i class="fas fa-user"></i> Full Name
+                        </label>
+                        <input type="text" id="registerName" placeholder="John Doe" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="registerEmail">
+                            <i class="fas fa-envelope"></i> Email Address
+                        </label>
+                        <input type="email" id="registerEmail" placeholder="your@email.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="registerPassword">
+                            <i class="fas fa-lock"></i> Password
+                        </label>
+                        <input type="password" id="registerPassword" placeholder="••••••••" required>
+                    </div>
+
+                    <button id="registerBtn" class="btn btn-primary btn-block">
+                        <i class="fas fa-user-plus"></i> Create Account
+                    </button>
+
+                    <p class="auth-toggle">
+                        Already have an account? 
+                        <span id="toggleLogin" class="link-btn">Login</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dashboard Page -->
+        <div id="dashboardPage" class="page">
+            <div class="dashboard-container">
+                <!-- Sidebar -->
+                <aside class="sidebar">
+                    <div class="user-card">
+                        <div class="user-avatar">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <h3 id="sidebarName">User Name</h3>
+                        <p id="sidebarEmail">email@example.com</p>
+                        <div class="user-rating" id="userRating">
+                            <i class="fas fa-star"></i> <span>0.0</span> (0 reviews)
+                        </div>
+                    </div>
+
+                    <nav class="sidebar-nav">
+                        <button class="sidebar-btn active" onclick="showSection('dashboard')">
+                            <i class="fas fa-chart-line"></i> Dashboard
+                        </button>
+                        <button class="sidebar-btn" onclick="showSection('mySkills')">
+                            <i class="fas fa-book"></i> My Skills
+                        </button>
+                        <button class="sidebar-btn" onclick="showSection('findTeachers')">
+                            <i class="fas fa-search"></i> Find Teachers
+                        </button>
+                        <button class="sidebar-btn" onclick="showSection('requestSkill')">
+                            <i class="fas fa-lightbulb"></i> Request Skill
+                        </button>
+                        <button class="sidebar-btn" onclick="showSection('mySessions')">
+                            <i class="fas fa-calendar-alt"></i> My Sessions
+                        </button>
+                        <button class="sidebar-btn" onclick="showSection('messages')">
+                            <i class="fas fa-comments"></i> Messages
+                            <span id="messageCount" class="badge" style="display:none;">0</span>
+                        </button>
+                        <button class="sidebar-btn" onclick="showSection('availability')">
+                            <i class="fas fa-clock"></i> Availability
+                        </button>
+                    </nav>
+                </aside>
+
+                <!-- Main Content -->
+                <main class="main-content">
+                    <!-- Dashboard Section -->
+                    <section id="dashboard" class="section active">
+                        <h1>Welcome to Your Dashboard!</h1>
+                        <div class="dashboard-grid">
+                            <div class="stat-box">
+                                <i class="fas fa-book-open"></i>
+                                <h3>Skills to Teach</h3>
+                                <p id="dashTeachCount" class="big-number">0</p>
+                            </div>
+                            <div class="stat-box">
+                                <i class="fas fa-graduation-cap"></i>
+                                <h3>Want to Learn</h3>
+                                <p id="dashLearnCount" class="big-number">0</p>
+                            </div>
+                            <div class="stat-box">
+                                <i class="fas fa-video"></i>
+                                <h3>Sessions Completed</h3>
+                                <p id="dashSessionCount" class="big-number">0</p>
+                            </div>
+                            <div class="stat-box">
+                                <i class="fas fa-star"></i>
+                                <h3>Your Rating</h3>
+                                <p id="dashRatingCount" class="big-number">0.0</p>
+                            </div>
+                        </div>
+
+                        <div class="dashboard-card">
+                            <h2>Getting Started</h2>
+                            <div class="getting-started">
+                                <div class="step">
+                                    <div class="step-number">1</div>
+                                    <div>
+                                        <h3>Add Your Skills</h3>
+                                        <p>Tell the community what you can teach</p>
+                                        <button class="btn btn-small" onclick="showSection('mySkills')">Add Skill</button>
+                                    </div>
+                                </div>
+                                <div class="step">
+                                    <div class="step-number">2</div>
+                                    <div>
+                                        <h3>Find Teachers</h3>
+                                        <p>Search for teachers who can help you learn</p>
+                                        <button class="btn btn-small" onclick="showSection('findTeachers')">Find Teachers</button>
+                                    </div>
+                                </div>
+                                <div class="step">
+                                    <div class="step-number">3</div>
+                                    <div>
+                                        <h3>Book Sessions</h3>
+                                        <p>Schedule learning sessions with teachers</p>
+                                        <button class="btn btn-small" onclick="showSection('mySessions')">View Sessions</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- My Skills Section -->
+                    <section id="mySkills" class="section">
+                        <div class="section-header">
+                            <h1>Skills I Can Teach</h1>
+                            <button class="btn btn-primary" onclick="showSection('addSkill')">
+                                <i class="fas fa-plus"></i> Add New Skill
+                            </button>
+                        </div>
+
+                        <div id="skillsList" class="cards-grid">
+                            <!-- Skills will be loaded here -->
+                        </div>
+                    </section>
+
+                    <!-- Add Skill Section -->
+                    <section id="addSkill" class="section">
+                        <h1>Add a New Skill</h1>
+                        <div class="form-card">
+                            <form id="addSkillForm">
+                                <div class="form-group">
+                                    <label for="skillName">
+                                        <i class="fas fa-book"></i> Skill Name *
+                                    </label>
+                                    <input type="text" id="skillName" placeholder="e.g., Python Programming" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="experienceLevel">
+                                        <i class="fas fa-chart-line"></i> Experience Level *
+                                    </label>
+                                    <select id="experienceLevel" required>
+                                        <option value="">Select level</option>
+                                        <option value="Beginner">Beginner</option>
+                                        <option value="Intermediate">Intermediate</option>
+                                        <option value="Advanced">Advanced</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="skillDescription">
+                                        <i class="fas fa-align-left"></i> Description
+                                    </label>
+                                    <textarea id="skillDescription" placeholder="Tell people about your expertise..."></textarea>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="ratePerHour">
+                                            <i class="fas fa-dollar-sign"></i> Rate per Hour ($)
+                                        </label>
+                                        <input type="number" id="ratePerHour" placeholder="0.00" min="0" step="0.01">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="hourlyCapacity">
+                                            <i class="fas fa-hourglass"></i> Hours/Week Available
+                                        </label>
+                                        <input type="number" id="hourlyCapacity" placeholder="10" min="1" value="10">
+                                    </div>
+                                </div>
+
+                                <button type="submit" class="btn btn-primary btn-block">
+                                    <i class="fas fa-check"></i> Add Skill
+                                </button>
+                            </form>
+                        </div>
+                    </section>
+
+                    <!-- Find Teachers Section -->
+                    <section id="findTeachers" class="section">
+                        <h1>Find Expert Teachers</h1>
+                        
+                        <div class="search-box">
+                            <select id="skillFilter" required>
+                                <option value="">🔍 Select a skill to find teachers...</option>
+                            </select>
+                            <button id="searchBtn" class="btn btn-primary">
+                                <i class="fas fa-search"></i> Search
+                            </button>
+                        </div>
+
+                        <div id="teachersList" class="cards-grid">
+                            <!-- Teachers will be loaded here -->
+                        </div>
+                    </section>
+
+                    <!-- Request Skill Section -->
+                    <section id="requestSkill" class="section">
+                        <h1>Request a Skill</h1>
+                        <div class="form-card">
+                            <form id="requestSkillForm">
+                                <div class="form-group">
+                                    <label for="skillToLearn">
+                                        <i class="fas fa-graduation-cap"></i> What do you want to learn? *
+                                    </label>
+                                    <select id="skillToLearn" required>
+                                        <option value="">Select a skill...</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="learningLevel">
+                                        <i class="fas fa-level-up-alt"></i> Your Current Level *
+                                    </label>
+                                    <select id="learningLevel" required>
+                                        <option value="">Select level</option>
+                                        <option value="Beginner">Beginner</option>
+                                        <option value="Intermediate">Intermediate</option>
+                                        <option value="Advanced">Advanced</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="learningReason">
+                                        <i class="fas fa-comment"></i> Why do you want to learn?
+                                    </label>
+                                    <textarea id="learningReason" placeholder="Tell us why you're interested..."></textarea>
+                                </div>
+
+                                <button type="submit" class="btn btn-primary btn-block">
+                                    <i class="fas fa-paper-plane"></i> Submit Request
+                                </button>
+                            </form>
+                        </div>
+                    </section>
+
+                    <!-- My Sessions Section -->
+                    <section id="mySessions" class="section">
+                        <h1>My Sessions</h1>
+                        <div id="sessionsList" class="cards-grid">
+                            <!-- Sessions will be loaded here -->
+                        </div>
+                    </section>
+
+                    <!-- Messages Section -->
+                    <section id="messages" class="section">
+                        <h1>Messages</h1>
+                        <div class="messages-container">
+                            <aside class="contacts-panel">
+                                <div class="contacts-header">
+                                    <h2>Contacts</h2>
+                                    <button class="btn-icon" title="Refresh">
+                                        <i class="fas fa-sync"></i>
+                                    </button>
+                                </div>
+                                <div id="contactsList" class="contacts-list">
+                                    <!-- Contacts will be loaded here -->
+                                </div>
+                            </aside>
+
+                            <div class="chat-panel">
+                                <div class="chat-header" id="chatHeader">
+                                    <p>Select a contact to start messaging</p>
+                                </div>
+
+                                <div id="chatMessages" class="chat-messages">
+                                    <!-- Messages will be loaded here -->
+                                </div>
+
+                                <div id="chatInputBox" class="chat-input-box" style="display:none;">
+                                    <input type="text" id="messageText" placeholder="Type your message...">
+                                    <button id="sendBtn" class="btn-icon" title="Send">
+                                        <i class="fas fa-paper-plane"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Availability Section -->
+                    <section id="availability" class="section">
+                        <h1>My Availability</h1>
+                        <div class="form-card">
+                            <h2>Add Your Availability Slots</h2>
+                            <form id="addAvailabilityForm">
+                                <div class="form-group">
+                                    <label for="dayOfWeek">
+                                        <i class="fas fa-calendar"></i> Day of Week *
+                                    </label>
+                                    <select id="dayOfWeek" required>
+                                        <option value="">Select day</option>
+                                        <option value="Monday">Monday</option>
+                                        <option value="Tuesday">Tuesday</option>
+                                        <option value="Wednesday">Wednesday</option>
+                                        <option value="Thursday">Thursday</option>
+                                        <option value="Friday">Friday</option>
+                                        <option value="Saturday">Saturday</option>
+                                        <option value="Sunday">Sunday</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="startTime">
+                                            <i class="fas fa-clock"></i> Start Time *
+                                        </label>
+                                        <input type="time" id="startTime" required>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="endTime">
+                                            <i class="fas fa-hourglass-end"></i> End Time *
+                                        </label>
+                                        <input type="time" id="endTime" required>
+                                    </div>
+                                </div>
+
+                                <button type="submit" class="btn btn-primary btn-block">
+                                    <i class="fas fa-plus"></i> Add Availability
+                                </button>
+                            </form>
+                        </div>
+
+                        <div class="availability-list">
+                            <h2>Your Schedule</h2>
+                            <div id="availabilityList">
+                                <!-- Availability slots will be loaded here -->
+                            </div>
+                        </div>
+                    </section>
+                </main>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2026 SkillHub. Built with <i class="fas fa-heart"></i> for learners worldwide.</p>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
