@@ -1,4 +1,4 @@
-# 💡 SkillHub - Skill Exchange Platform
+# 💡 SkillSwap - Skill Exchange Platform
 
 A full-stack web application where users can teach and learn skills, connect with others, and book sessions.
 
