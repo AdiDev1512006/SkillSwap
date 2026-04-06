@@ -245,7 +245,7 @@
 
 .stat-box {
     background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-    color: white;
+    color: black;
     padding: 2rem;
     border-radius: 15px;
     text-align: center;
@@ -576,7 +576,7 @@
 /* ===== FOOTER ===== */
 .footer {
     background: var(--dark);
-    color: white;
+    color: black;
     text-align: center;
     padding: 2rem;
     margin-top: 4rem;
