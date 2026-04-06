@@ -69,8 +69,7 @@ dbms-project/
 
 ### 1. Clone the repository
 
-git clone [<your-repo-link>
-cd dbms-project](https://github.com/AdiDev1512006/SkillSwap.git)
+git clone https://github.com/AdiDev1512006/SkillSwap.git
 
 ---
 
