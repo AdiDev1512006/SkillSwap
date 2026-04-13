@@ -40,28 +40,22 @@ A full-stack web application where users can teach and learn skills, connect wit
 ## 📁 Project Structure
 
 dbms-project/
-│
-├── backend/
-│   ├── server.js
-│   ├── db.js
-│   ├── package.json
-│   ├── .env
-│
-│   ├── routes/
-│   │   └── routes.js
-│
-│   ├── sql/
-│   │   └── skill_exchange_complete.sql
-│
-│   ├── config/
-│   │   └── db.config.js
-│
-├── frontend/
-│   ├── index.html
-│   ├── script.js
-│   └── style.css
-│
-└── README.md
+    ├── backend/
+    │   ├── config/
+    │   │   └── db.config.js
+    │   ├── routes/
+    │   │   └── routes.js
+    │   ├── sql/
+    │   │   └── skill_exchange_complete.sql
+    │   ├── db.js
+    │   ├── package.json
+    │   └── server.js
+    ├── frontend/
+    │   ├── index.html
+    │   ├── script.js
+    │   └── style.css
+    ├── .gitignore
+    └── README.md
 
 ---
 
